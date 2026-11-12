@@ -1,0 +1,1351 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 15% 15%, #e9d1c9, transparent 35%),
+        radial-gradient(circle at 85% 85%, #d7c0ac, transparent 40%),
+        #eee4d9;
+    font-family: Georgia, serif;
+}
+
+/* BACKGROUND */
+
+.flower {
+    position: absolute;
+    font-size: 35px;
+    opacity: 0.55;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+.f1 { top: 5%; left: 5%; }
+.f2 { top: 10%; right: 7%; }
+.f3 { bottom: 8%; left: 8%; }
+.f4 { bottom: 7%; right: 6%; }
+.f5 { top: 45%; left: 2%; }
+.f6 { top: 45%; right: 2%; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* WOODEN BOX */
+
+.wooden-box {
+    position: relative;
+    width: 82vw;
+    height: 72vh;
+    min-width: 300px;
+    min-height: 280px;
+    background:
+        repeating-linear-gradient(
+            2deg,
+            transparent 0px,
+            rgba(30,15,8,0.12) 3px,
+            transparent 8px,
+            rgba(210,160,110,0.08) 14px
+        ),
+        linear-gradient(
+            135deg,
+            #65402d,
+            #382319 35%,
+            #593622 65%,
+            #29180f
+        );
+    border: 8px solid #24140d;
+    box-shadow:
+        0 25px 45px rgba(25,12,6,0.45),
+        inset 0 0 15px rgba(0,0,0,0.7),
+        inset 0 5px 12px rgba(190,140,95,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wooden-box::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 3px solid #98704b;
+    outline: 3px solid #302017;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* HOLLOW AREA */
+
+.hollow-area {
+    position: absolute;
+    width: 85%;
+    height: 78%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #090604 0%,
+            #160e09 55%,
+            #24150e 100%
+        );
+    box-shadow:
+        inset 0 0 35px rgba(0,0,0,0.95),
+        inset 0 8px 15px rgba(0,0,0,0.8);
+    border: 2px solid #382316;
+    z-index: 1;
+}
+
+/* PAPER */
+
+.paper {
+    position: relative;
+    width: 85%;
+    height: 78%;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            ellipse at 15% 20%,
+            rgba(150,105,55,0.17),
+            transparent 22%
+        ),
+        radial-gradient(
+            ellipse at 85% 75%,
+            rgba(135,90,40,0.15),
+            transparent 25%
+        ),
+        radial-gradient(
+            ellipse at 50% 50%,
+            #fff3d0 35%,
+            #f2e2b7 72%,
+            #ddc391 100%
+        );
+    border: 1px solid #bda477;
+    box-shadow: 0 6px 15px rgba(30,15,5,0.25);
+    z-index: 2;
+}
+
+.paper::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            to right,
+            rgba(130,85,35,0.17),
+            transparent 5%,
+            transparent 95%,
+            rgba(130,85,35,0.17)
+        ),
+        linear-gradient(
+            to bottom,
+            rgba(130,85,35,0.15),
+            transparent 6%,
+            transparent 94%,
+            rgba(130,85,35,0.15)
+        );
+    pointer-events: none;
+}
+
+/* BURNING EDGE */
+
+.burn-edge {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* MATCHBOX */
+
+.matchbox {
+    position: fixed;
+    width: 105px;
+    height: 58px;
+    bottom: 5%;
+    left: 5%;
+    background: linear-gradient(135deg, #a53b32, #67201e);
+    border: 2px solid #4b211a;
+    border-radius: 5px;
+    box-shadow:
+        0 5px 10px rgba(0,0,0,0.5),
+        inset 0 2px 4px rgba(255,255,255,0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f3d9a5;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    z-index: 9;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+.matchbox:active {
+    cursor: grabbing;
+}
+
+.matchbox::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #3e211a;
+    border-radius: 0 0 4px 4px;
+}
+
+/* MATCHSTICK */
+
+.matchstick {
+    position: absolute;
+    width: 8px;
+    height: 65px;
+    background: linear-gradient(90deg, #854523, #e1b77d, #854523);
+    right: 5%;
+    top: 48%;
+    transform: rotate(35deg);
+    border-radius: 5px;
+    z-index: 10;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+}
+
+.matchstick:active {
+    cursor: grabbing;
+}
+
+.matchstick::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: -3px;
+    width: 14px;
+    height: 16px;
+    background: #9d3028;
+    border-radius: 50%;
+}
+
+/* MATCHSTICK FLAME */
+
+.flame {
+    display: none;
+    position: absolute;
+    top: -31px;
+    left: -5px;
+    width: 18px;
+    height: 29px;
+    background: radial-gradient(
+        ellipse at 50% 75%,
+        #fff8a6 0%,
+        #ffb52e 35%,
+        #f15a16 70%,
+        transparent 100%
+    );
+    border-radius: 50% 50% 45% 45%;
+    transform-origin: bottom center;
+    filter: drop-shadow(0 0 7px #ff8a24);
+}
+
+.matchstick.lit .flame {
+    display: block;
+    animation: flicker 0.16s infinite alternate;
+}
+
+.matchstick.lit::before {
+    background: #ff8b22;
+    box-shadow: 0 0 9px #ff7518;
+}
+
+@keyframes flicker {
+    from { transform: scale(0.9) rotate(-5deg); }
+    to { transform: scale(1.12) rotate(5deg); }
+}
+
+/* INSTRUCTION CLOUD */
+
+.instruction-cloud {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 235px;
+    padding: 17px 18px;
+    background: #fffaf0;
+    color: #604536;
+    border: 1px solid #d7bfa5;
+    border-radius: 25px;
+    box-shadow:
+        0 6px 18px rgba(65,35,20,0.18),
+        inset 0 2px 5px rgba(255,255,255,0.9);
+    font-family: Georgia, serif;
+    z-index: 20;
+    pointer-events: none;
+    animation: cloudFloat 4s ease-in-out infinite;
+}
+
+.instruction-cloud::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background: #fffaf0;
+    bottom: -10px;
+    right: 35px;
+    transform: rotate(45deg);
+    border-right: 1px solid #d7bfa5;
+    border-bottom: 1px solid #d7bfa5;
+    z-index: -1;
+}
+
+.cloud-heading {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #8b5742;
+}
+
+.cloud-step {
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+.cloud-footer {
+    font-size: 11px;
+    text-align: center;
+    font-style: italic;
+    color: #a47c65;
+    margin-top: 8px;
+}
+
+@keyframes cloudFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* GIFT AREA */
+
+.gift-stage {
+    position: absolute;
+    width: 85%;
+    height: 78%;
+    z-index: 3;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at center, #352016, #100a07 85%);
+    color: #f9e9c9;
+    border: 1px solid #6b4a32;
+}
+
+.gift-stage.show {
+    display: flex;
+    animation: stageAppear 1.2s ease;
+}
+
+@keyframes stageAppear {
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.gift-card {
+    display: none;
+    width: 100%;
+    max-width: 440px;
+    max-height: 100%;
+    overflow-y: auto;
+    text-align: center;
+    padding: 20px;
+    animation: giftAppear 0.8s ease;
+}
+
+.gift-card.active {
+    display: block;
+}
+
+@keyframes giftAppear {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.gift-title {
+    color: #e9c58e;
+    font-size: clamp(19px, 3vw, 27px);
+    margin-bottom: 12px;
+}
+
+.gift-description {
+    color: #e8d6ba;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 12px auto;
+    max-width: 360px;
+}
+
+.gift-button {
+    border: 1px solid #c59b67;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #9b6545, #583523);
+    color: #fff1d5;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    padding: 11px 22px;
+    margin-top: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gift-button:hover {
+    background: linear-gradient(135deg, #bd8961, #805038);
+    transform: translateY(-2px);
+}
+
+.gift-message {
+    display: none;
+    color: #ffe7b8;
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 15px auto;
+    max-width: 360px;
+    animation: giftAppear 1s ease;
+}
+
+.gift-message.visible {
+    display: block;
+}
+
+/* LETTER */
+
+.envelope {
+    position: relative;
+    width: 155px;
+    height: 105px;
+    margin: 20px auto;
+    background: #c89b62;
+    border: 2px solid #9c7045;
+    border-radius: 4px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
+.envelope::before {
+    content: "❤️";
+    position: absolute;
+    z-index: 2;
+    top: 35px;
+    left: 65px;
+    font-size: 25px;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 76px solid transparent;
+    border-right: 76px solid transparent;
+    border-top: 58px solid #e2bd87;
+    transform-origin: top;
+    transition: transform 0.6s;
+}
+
+.envelope.open::after {
+    transform: rotateX(180deg);
+}
+
+/* RING BOX */
+
+.ring-box {
+    width: 110px;
+    height: 75px;
+    background: linear-gradient(135deg, #8d252d, #4c1119);
+    border: 3px solid #bd8b56;
+    border-radius: 10px 10px 16px 16px;
+    margin: 30px auto 15px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+}
+
+.ring-lid {
+    position: absolute;
+    width: 110px;
+    height: 32px;
+    left: -3px;
+    top: -25px;
+    border: 3px solid #bd8b56;
+    border-radius: 12px 12px 4px 4px;
+    background: linear-gradient(135deg, #b3444a, #701d27);
+    transform-origin: bottom;
+    transition: transform 0.7s;
+}
+
+.ring-box.open .ring-lid {
+    transform: rotateX(115deg);
+}
+
+.ring {
+    position: absolute;
+    top: 14px;
+    left: 39px;
+    width: 28px;
+    height: 28px;
+    border: 5px solid #e8c66d;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(15px) scale(0.5);
+    transition: 0.8s;
+    filter: drop-shadow(0 0 7px #f5d98c);
+}
+
+.ring::before {
+    content: "💎";
+    position: absolute;
+    font-size: 19px;
+    top: -23px;
+    left: 0px;
+}
+
+.ring-box.open .ring {
+    opacity: 1;
+    transform: translateY(-12px) scale(1.2);
+}
+
+/* COMPASS */
+
+.compass {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 8px solid #b98b4d;
+    background: radial-gradient(circle, #f6dfac, #bd9255);
+    margin: 18px auto;
+    position: relative;
+    box-shadow: 0 0 20px rgba(224,177,99,0.3);
+    cursor: pointer;
+}
+
+.compass::before {
+    content: "N";
+    position: absolute;
+    top: 5px;
+    left: 52px;
+    color: #4b2d1c;
+    font-weight: bold;
+}
+
+.compass::after {
+    content: "S";
+    position: absolute;
+    bottom: 4px;
+    left: 52px;
+    color: #4b2d1c;
+    font-weight: bold;
+}
+
+.compass-needle {
+    position: absolute;
+    width: 4px;
+    height: 75px;
+    background: linear-gradient(to bottom, #9b2525 50%, #f4e3b7 50%);
+    left: 52px;
+    top: 16px;
+    transform-origin: center;
+    transition: transform 1.5s ease;
+    border-radius: 5px;
+}
+
+/* BOUQUET */
+
+.bouquet {
+    font-size: 55px;
+    margin: 15px auto;
+    letter-spacing: -7px;
+    filter: drop-shadow(0 5px 8px rgba(0,0,0,0.3));
+    opacity: 0.25;
+    transform: scale(0.5);
+    transition: 1s;
+}
+
+.bouquet.bloom {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* STAR */
+
+.little-star {
+    font-size: 85px;
+    display: block;
+    margin: 15px auto;
+    color: #ffe28a;
+    text-shadow: 0 0 15px #f5c75c, 0 0 35px #e8b74e;
+    opacity: 0.2;
+    transform: scale(0.3) rotate(-90deg);
+    transition: 1s;
+}
+
+.little-star.shine {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    animation: starGlow 2s infinite alternate;
+}
+
+@keyframes starGlow {
+    from { text-shadow: 0 0 12px #f5c75c; }
+    to { text-shadow: 0 0 35px #ffe9a6, 0 0 55px #e9b94e; }
+}
+
+/* FINAL MESSAGE */
+
+.final-heart {
+    font-size: 65px;
+    animation: heartBeat 1.2s infinite;
+    margin: 12px auto;
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.progress-text {
+    color: #c9a77c;
+    font-size: 11px;
+    margin-top: 15px;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .wooden-box {
+        width: 90vw;
+        height: 65vh;
+    }
+
+    .paper {
+        width: 84%;
+        height: 78%;
+    }
+
+    .gift-stage {
+        width: 84%;
+        height: 78%;
+        padding: 8px;
+    }
+
+    .gift-card {
+        padding: 10px;
+    }
+
+    .gift-description,
+    .gift-message {
+        font-size: 12px;
+        line-height: 1.6;
+    }
+
+    .gift-button {
+        font-size: 12px;
+        padding: 9px 16px;
+    }
+
+    .instruction-cloud {
+        width: 190px;
+        right: 10px;
+        bottom: 10px;
+        padding: 12px;
+    }
+
+    .cloud-step {
+        font-size: 11px;
+    }
+
+    .matchbox {
+        width: 90px;
+        height: 50px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="flower f1">🌸</div>
+<div class="flower f2">🌷</div>
+<div class="flower f3">🌼</div>
+<div class="flower f4">🌸</div>
+<div class="flower f5">🌿</div>
+<div class="flower f6">🌺</div>
+
+<div class="wooden-box" id="box">
+
+    <div class="hollow-area"></div>
+
+    <div class="paper" id="paper">
+        <div class="burn-edge" id="burnEdge"></div>
+    </div>
+
+    <div class="matchstick" id="matchstick">
+        <div class="flame"></div>
+    </div>
+
+    <!-- GIFTS APPEAR AFTER PAPER BURNS -->
+
+    <div class="gift-stage" id="giftStage">
+
+        <!-- 1. LOVE LETTER -->
+
+        <div class="gift-card active" id="gift1">
+
+            <div class="gift-title">A Letter For You 💌</div>
+
+            <p class="gift-description">
+                There's something I've been wanting to tell you...
+            </p>
+
+            <div class="envelope" id="envelope"></div>
+
+            <button class="gift-button" id="openLetter">
+                Open My Letter
+            </button>
+
+            <div class="gift-message" id="letterMessage">
+                My Dearest ❤️<br><br>
+
+                Sometimes words aren't enough to explain
+                how much someone means to us.<br><br>
+
+                You have brought so much happiness,
+                warmth and meaning into my life.<br><br>
+
+                Every little moment with you is special,
+                and I hope we get to create countless
+                beautiful memories together.<br><br>
+
+                There's still more I want to show you...
+            </div>
+
+            <button class="gift-button next-button" id="next1" style="display:none;">
+                There's More ❤️
+            </button>
+
+        </div>
+
+        <!-- 2. PROPOSAL RING -->
+
+        <div class="gift-card" id="gift2">
+
+            <div class="gift-title">A Little Question 💍</div>
+
+            <p class="gift-description">
+                Something special is waiting inside...
+            </p>
+
+            <div class="ring-box" id="ringBox">
+                <div class="ring-lid"></div>
+                <div class="ring"></div>
+            </div>
+
+            <button class="gift-button" id="openRing">
+                Open The Box
+            </button>
+
+            <div class="gift-message" id="ringMessage">
+                If I could choose one person to walk
+                through every tomorrow with,
+                it would always be you.<br><br>
+
+                You make ordinary moments feel magical,
+                and I want to keep making memories
+                with you.<br><br>
+
+                **Will you be my forever person?** ❤️
+            </div>
+
+            <button class="gift-button next-button" id="next2" style="display:none;">
+                Follow The Compass 🧭
+            </button>
+
+        </div>
+
+        <!-- 3. COMPASS -->
+
+        <div class="gift-card" id="gift3">
+
+            <div class="gift-title">My Direction 🧭</div>
+
+            <p class="gift-description">
+                Every journey needs a direction.
+                Click the compass to find mine.
+            </p>
+
+            <div class="compass" id="compass">
+                <div class="compass-needle" id="needle"></div>
+            </div>
+
+            <button class="gift-button" id="turnCompass">
+                Find My Destination
+            </button>
+
+            <div class="gift-message" id="compassMessage">
+                I've searched in every direction,
+                but my heart has always known
+                its destination.<br><br>
+
+                It's you. ❤️<br><br>
+
+                Wherever life takes us,
+                you're the direction I want to follow.
+            </div>
+
+            <button class="gift-button next-button" id="next3" style="display:none;">
+                Something Beautiful Awaits 💐
+            </button>
+
+        </div>
+
+        <!-- 4. FLOWER BOUQUET -->
+
+        <div class="gift-card" id="gift4">
+
+            <div class="gift-title">Flowers For You 💐</div>
+
+            <p class="gift-description">
+                A little surprise, made with lots of love.
+            </p>
+
+            <div class="bouquet" id="bouquet">
+                🌹🌷🌸🌹🌷
+            </div>
+
+            <button class="gift-button" id="bloomFlowers">
+                Make The Flowers Bloom
+            </button>
+
+            <div class="gift-message" id="bouquetMessage">
+                A little bouquet for someone
+                who makes my world bloom.<br><br>
+
+                Just like these flowers,
+                I hope our happiness keeps growing. 🌸
+            </div>
+
+            <button class="gift-button next-button" id="next4" style="display:none;">
+                One More Little Surprise ⭐
+            </button>
+
+        </div>
+
+        <!-- 5. LITTLE STAR -->
+
+        <div class="gift-card" id="gift5">
+
+            <div class="gift-title">A Star For You ⭐</div>
+
+            <p class="gift-description">
+                Look closely... there's something shining for you.
+            </p>
+
+            <span class="little-star" id="littleStar">★</span>
+
+            <button class="gift-button" id="revealStar">
+                Make A Wish
+            </button>
+
+            <div class="gift-message" id="starMessage">
+                Even among billions of stars,
+                I'd still look for you.<br><br>
+
+                You make my little universe
+                brighter every single day. ✨
+            </div>
+
+            <button class="gift-button next-button" id="next5" style="display:none;">
+                The Final Surprise ❤️
+            </button>
+
+        </div>
+
+        <!-- 6. FINAL MESSAGE -->
+
+        <div class="gift-card" id="gift6">
+
+            <div class="gift-title">One Last Thing ❤️</div>
+
+            <div class="final-heart">❤️</div>
+
+            <p class="gift-description">
+                Every little gift had a meaning.
+                But this one is the most important.
+            </p>
+
+            <button class="gift-button" id="finalReveal">
+                Reveal My Final Message
+            </button>
+
+            <div class="gift-message" id="finalMessage">
+                If I could make one wish,
+                it would be to keep creating
+                beautiful memories with you.<br><br>
+
+                Thank you for being you,
+                for being part of my story,
+                and for making life a little more beautiful.<br><br>
+
+                This is not the end of our little adventure...
+                <br><br>
+
+                It's just the beginning. ❤️
+            </div>
+
+            <div class="progress-text" id="finishedText" style="display:none;">
+                Made with love, just for you ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MATCHBOX -->
+
+<div class="matchbox" id="matchbox">
+    MATCHBOX
+</div>
+
+<!-- INSTRUCTION CLOUD -->
+
+<div class="instruction-cloud" id="instructionCloud">
+
+    <div class="cloud-heading">
+        ☁ How to use ☁
+    </div>
+
+    <div class="cloud-step">
+        🔸 Step 1: Drag the matchstick onto the matchbox to light it.
+    </div>
+
+    <div class="cloud-step">
+        🔸 Step 2: Drag the burning matchstick onto the paper.
+    </div>
+
+    <div class="cloud-footer">
+        Let the surprise unfold! ❤️
+    </div>
+
+</div>
+
+<script>
+
+/* ELEMENTS */
+
+const box = document.getElementById("box");
+const paper = document.getElementById("paper");
+const matchbox = document.getElementById("matchbox");
+const matchstick = document.getElementById("matchstick");
+const burnEdge = document.getElementById("burnEdge");
+const giftStage = document.getElementById("giftStage");
+const instructionCloud = document.getElementById("instructionCloud");
+
+let dragging = false;
+let lit = false;
+let burned = false;
+
+let offsetX = 0;
+let offsetY = 0;
+
+/* DRAG MATCHBOX ANYWHERE ON SCREEN */
+
+let movingMatchbox = false;
+let matchboxOffsetX = 0;
+let matchboxOffsetY = 0;
+
+matchbox.addEventListener("pointerdown", function(e) {
+
+    movingMatchbox = true;
+
+    const rect = matchbox.getBoundingClientRect();
+
+    matchboxOffsetX = e.clientX - rect.left;
+    matchboxOffsetY = e.clientY - rect.top;
+
+    matchbox.style.right = "auto";
+    matchbox.style.bottom = "auto";
+    matchbox.style.left = rect.left + "px";
+    matchbox.style.top = rect.top + "px";
+
+    matchbox.setPointerCapture(e.pointerId);
+    e.preventDefault();
+
+});
+
+/* MOVE MATCHBOX */
+
+matchbox.addEventListener("pointermove", function(e) {
+
+    if (!movingMatchbox) return;
+
+    const maxX = window.innerWidth - matchbox.offsetWidth;
+    const maxY = window.innerHeight - matchbox.offsetHeight;
+
+    const x = Math.max(0, Math.min(
+        e.clientX - matchboxOffsetX,
+        maxX
+    ));
+
+    const y = Math.max(0, Math.min(
+        e.clientY - matchboxOffsetY,
+        maxY
+    ));
+
+    matchbox.style.left = x + "px";
+    matchbox.style.top = y + "px";
+
+});
+
+/* RELEASE MATCHBOX */
+
+matchbox.addEventListener("pointerup", function() {
+    movingMatchbox = false;
+});
+
+matchbox.addEventListener("pointercancel", function() {
+    movingMatchbox = false;
+});
+
+/* DRAG MATCHSTICK */
+
+matchstick.addEventListener("pointerdown", function(e) {
+
+    if (burned) return;
+
+    dragging = true;
+
+    matchstick.setPointerCapture(e.pointerId);
+
+    const rect = matchstick.getBoundingClientRect();
+
+    offsetX = e.clientX - rect.left;
+    offsetY = e.clientY - rect.top;
+
+    e.preventDefault();
+
+});
+
+/* MOVE MATCHSTICK */
+
+matchstick.addEventListener("pointermove", function(e) {
+
+    if (!dragging) return;
+
+    const boxRect = box.getBoundingClientRect();
+
+    const x = e.clientX - boxRect.left - offsetX;
+    const y = e.clientY - boxRect.top - offsetY;
+
+    matchstick.style.left = x + "px";
+    matchstick.style.top = y + "px";
+    matchstick.style.right = "auto";
+
+});
+
+/* RELEASE MATCHSTICK */
+
+matchstick.addEventListener("pointerup", function(e) {
+
+    if (!dragging) return;
+
+    dragging = false;
+
+    const matchRect = matchstick.getBoundingClientRect();
+    const matchboxRect = matchbox.getBoundingClientRect();
+    const paperRect = paper.getBoundingClientRect();
+
+    /* IGNITE MATCHSTICK */
+
+    if (!lit && !burned && isTouching(matchRect, matchboxRect)) {
+
+        lit = true;
+        matchstick.classList.add("lit");
+
+        return;
+    }
+
+    /* BURN PAPER */
+
+    if (lit && !burned && isTouching(matchRect, paperRect)) {
+
+        const x = e.clientX - paperRect.left;
+        const y = e.clientY - paperRect.top;
+
+        startBurn(x, y);
+    }
+
+});
+
+/* CHECK COLLISION */
+
+function isTouching(a, b) {
+
+    return (
+        a.left < b.right &&
+        a.right > b.left &&
+        a.top < b.bottom &&
+        a.bottom > b.top
+    );
+
+}
+
+/* PAPER BURNING */
+
+function startBurn(x, y) {
+
+    if (burned) return;
+
+    burned = true;
+
+    matchstick.style.display = "none";
+
+    const width = paper.clientWidth;
+    const height = paper.clientHeight;
+
+    const maxRadius = Math.hypot(
+        Math.max(x, width - x),
+        Math.max(y, height - y)
+    );
+
+    const duration = 4500;
+    const start = performance.now();
+
+    function animate(now) {
+
+        const progress = Math.min(
+            (now - start) / duration,
+            1
+        );
+
+        const radius = maxRadius * progress;
+
+        paper.style.maskImage =
+            `radial-gradient(circle ${radius}px at ${x}px ${y}px,
+            transparent ${Math.max(0, radius - 10)}px,
+            black ${radius}px)`;
+
+        paper.style.webkitMaskImage =
+            `radial-gradient(circle ${radius}px at ${x}px ${y}px,
+            transparent ${Math.max(0, radius - 10)}px,
+            black ${radius}px)`;
+
+        burnEdge.style.background =
+            `radial-gradient(circle ${radius}px at ${x}px ${y}px,
+            transparent ${Math.max(0, radius - 13)}px,
+            rgba(35,17,10,0.95) ${Math.max(0, radius - 8)}px,
+            rgba(105,49,20,0.85) ${radius}px,
+            transparent ${radius + 5}px)`;
+
+        if (progress < 1) {
+
+            requestAnimationFrame(animate);
+
+        } else {
+
+            paper.style.visibility = "hidden";
+            burnEdge.style.display = "none";
+
+            /* SHOW THE GIFTS */
+
+            instructionCloud.style.display = "none";
+
+            setTimeout(function() {
+                giftStage.classList.add("show");
+            }, 500);
+
+        }
+
+    }
+
+    requestAnimationFrame(animate);
+
+}
+
+/* GIFT SEQUENCE */
+
+let currentGift = 1;
+
+function showGift(number) {
+
+    document.querySelectorAll(".gift-card").forEach(function(card) {
+        card.classList.remove("active");
+    });
+
+    document.getElementById("gift" + number).classList.add("active");
+
+    currentGift = number;
+
+}
+
+function unlockNext(number) {
+
+    showGift(number);
+}
+
+/* 1. LOVE LETTER */
+
+const envelope = document.getElementById("envelope");
+const openLetter = document.getElementById("openLetter");
+const letterMessage = document.getElementById("letterMessage");
+const next1 = document.getElementById("next1");
+
+openLetter.addEventListener("click", function() {
+
+    envelope.classList.add("open");
+
+    letterMessage.classList.add("visible");
+
+    openLetter.style.display = "none";
+
+    next1.style.display = "inline-block";
+
+});
+
+next1.addEventListener("click", function() {
+    unlockNext(2);
+});
+
+/* 2. RING BOX */
+
+const ringBox = document.getElementById("ringBox");
+const openRing = document.getElementById("openRing");
+const ringMessage = document.getElementById("ringMessage");
+const next2 = document.getElementById("next2");
+
+openRing.addEventListener("click", function() {
+
+    ringBox.classList.add("open");
+
+    ringMessage.classList.add("visible");
+
+    openRing.style.display = "none";
+
+    next2.style.display = "inline-block";
+
+});
+
+next2.addEventListener("click", function() {
+    unlockNext(3);
+});
+
+/* 3. COMPASS */
+
+const compass = document.getElementById("compass");
+const needle = document.getElementById("needle");
+const turnCompass = document.getElementById("turnCompass");
+const compassMessage = document.getElementById("compassMessage");
+const next3 = document.getElementById("next3");
+
+turnCompass.addEventListener("click", function() {
+
+    needle.style.transform = "rotate(45deg)";
+
+    compassMessage.classList.add("visible");
+
+    turnCompass.style.display = "none";
+
+    next3.style.display = "inline-block";
+
+});
+
+next3.addEventListener("click", function() {
+    unlockNext(4);
+});
+
+/* 4. FLOWER BOUQUET */
+
+const bouquet = document.getElementById("bouquet");
+const bloomFlowers = document.getElementById("bloomFlowers");
+const bouquetMessage = document.getElementById("bouquetMessage");
+const next4 = document.getElementById("next4");
+
+bloomFlowers.addEventListener("click", function() {
+
+    bouquet.classList.add("bloom");
+
+    bouquetMessage.classList.add("visible");
+
+    bloomFlowers.style.display = "none";
+
+    next4.style.display = "inline-block";
+
+});
+
+next4.addEventListener("click", function() {
+    unlockNext(5);
+});
+
+/* 5. LITTLE STAR */
+
+const littleStar = document.getElementById("littleStar");
+const revealStar = document.getElementById("revealStar");
+const starMessage = document.getElementById("starMessage");
+const next5 = document.getElementById("next5");
+
+revealStar.addEventListener("click", function() {
+
+    littleStar.classList.add("shine");
+
+    starMessage.classList.add("visible");
+
+    revealStar.style.display = "none";
+
+    next5.style.display = "inline-block";
+
+});
+
+next5.addEventListener("click", function() {
+    unlockNext(6);
+});
+
+/* 6. FINAL MESSAGE */
+
+const finalReveal = document.getElementById("finalReveal");
+const finalMessage = document.getElementById("finalMessage");
+const finishedText = document.getElementById("finishedText");
+
+finalReveal.addEventListener("click", function() {
+
+    finalMessage.classList.add("visible");
+
+    finalReveal.style.display = "none";
+
+    finishedText.style.display = "block";
+
+});
+
+</script>
+
+</body>
+</html>
